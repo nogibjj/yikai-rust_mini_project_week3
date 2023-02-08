@@ -5,7 +5,7 @@ use clap::Parser;
 #[clap(
     version = "1.0",
     author = "Yikai Liu",
-    about = "Check if the input is palindrome"
+    about = "Longest Substring Without Repeating Characterst"
 )]
 struct Cli {
     #[clap(subcommand)]
@@ -18,6 +18,7 @@ enum Commands {
     Check {
         #[clap(short, long)]
         string: String,
+
     },
 }
 
@@ -25,7 +26,7 @@ fn main() {
     let args = Cli::parse();
     match args.command {
         Some(Commands::Check { string }) => {
-            let result = hello::check_palindrome(&string);
+            let result = hello::length_of_longest_substring(&string);
             println!("{}", result);
         }
         None => println!("No subcommand was used"),
